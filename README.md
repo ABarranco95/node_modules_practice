@@ -1,25 +1,37 @@
-# Node Modules Practice
+# Create Module
+create your module file `myModule.js`.
 
-- [ ] Fork and clone this repo
-- [ ] Initialize node in your cloned repo so it becomes a node project!
+In Node, `module.exports` is an object that will hold code to be exported.
 
-## Make your own module
+For examples
 
-- [ ] Create a node module that stores an array of your favorite foods
-- [ ] Import that module into your `index.js`
-- [ ] Write code in your `index.js` so when you run your app, it loops through the array, printing all of your favorite foods to the console
+```js
 
-## Experiment with implementing a package
+module.exports.beBasic = () => "That's so fetch!"
 
-- [ ] Find 3 [npm](https://www.npmjs.com/) packages that look interesting
-- [ ] Experiment with incorporating them into this node project, just like we did with moment
+```
 
-## Add to your Node app instructions readme
+Now the module.exports object has `beBasic` ad the key and the function as the value.
 
-- [ ] Add notes about how to create and import node modules to your Node/Express app readme, along with instructions about adding a `.gitignore`
-- [ ] Paste the link to your repo in this the readme of this assignment
+# Import the module in `index.js`
 
-## Finally, .gitignore and submit a PR!
+This is where `require` function, specific to Node, comes into play. This function takes one argument: the path to the file that contains the module we are exporting.
 
-- [ ] Add a `.gitignore` to this assignment, so the `node_modules` folder doesn't upload to Github
-- [ ] Submit this assignment by making a `pull request`
+Inside `index.js` we can put the following code.
+
+```js 
+const myModule = require('./myModule.js');
+
+console.log(myModule.beBasic());
+```
+
+Now if we run `index.js` via the command line: 
+
+`node index.js`
+
+
+We have successfully create and imported a module.
+
+# Using `gitignore`
+
+to prevent a file from pushed add a `.gitignore` file and inside of it, add the file name of the file/s that you wish not to push or be seen.
